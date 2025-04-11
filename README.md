@@ -63,6 +63,22 @@ El diseño sigue principios de **normalización (3FN)** para garantizar integrid
 
 ---
 
+🗓️ Fechas y datos usados
+Las ventas se generaron con fechas dentro del rango abril 1 a abril 9 del año 2025, para facilitar el análisis por mes y día:
+
+2025-04-01 10:00:00
+
+2025-04-03 15:30:00
+
+2025-04-05 09:20:00
+
+2025-04-07 14:10:00
+
+2025-04-09 10:15:00
+
+Se insertaron 10 productos, 5 proveedores, 5 categorías y múltiples combinaciones cliente/venta.
+
+---
 ## ⚙️ Procedimientos y funciones
 
 ### `registrar_venta(customer_id, sale_date, product_ids[], quantities[])`
@@ -85,19 +101,6 @@ CALL registrar_venta(
     ARRAY[1, 2]
 );
 
-🗓️ Fechas y datos usados
-Las ventas se generaron con fechas dentro del rango abril 1 a abril 9 del año 2025, para facilitar el análisis por mes y día:
 
-2025-04-01 10:00:00
-
-2025-04-03 15:30:00
-
-2025-04-05 09:20:00
-
-2025-04-07 14:10:00
-
-2025-04-09 10:15:00
-
-Se insertaron 10 productos, 5 proveedores, 5 categorías y múltiples combinaciones cliente/venta.
 
 
