@@ -47,9 +47,10 @@ INSERT INTO Customer (name, email, phone) VALUES
 ('Felipe Martínez', 'fmartinez@email.com', '3075556677'),
 ('Natalia Mora', 'nmora@email.com', '3088889999'),
 ('Jorge Silva', 'jsilva@email.com', '3094445566'),
-('Andrea Ríos', 'andrea.rios@email.com', '3001122334');
+('Andrea Ríos', 'andrea.rios@email.com', '3001122334'),
+('Andres Araque', 'A_A@gmail.com', '3103339677');
 
-INSERT INTO Sale (customer_id, sale_date, total_amount) VALUES
+INSERT INTO Sale (customer_id, sale_date) VALUES
 (1, '2025-04-01 10:00:00'),
 (2, '2025-04-02 15:30:00'),
 (3, '2025-04-03 12:45:00'),
@@ -59,7 +60,10 @@ INSERT INTO Sale (customer_id, sale_date, total_amount) VALUES
 (7, '2025-04-05 18:30:00'),
 (8, '2025-04-06 11:10:00'),
 (9, '2025-04-06 16:40:00'),
-(10, '2025-04-07 13:25:00');
+(10, '2025-04-07 13:25:00'),
+(1, '2025-03-07 19:00:00'),
+(1, '2025-02-07 19:00:00'),
+(1, '2025-01-07 19:00:00');
 
 INSERT INTO SaleDetail (sale_id, product_id, quantity, unit_price) VALUES
 (1, 1, 1, 2500000),
@@ -71,4 +75,16 @@ INSERT INTO SaleDetail (sale_id, product_id, quantity, unit_price) VALUES
 (6, 7, 1, 620000),
 (7, 8, 1, 380000),
 (8, 9, 2, 250000),
-(9, 10, 1, 980000);
+(9, 10, 1, 980000),
+(10, 7, 4, 620000),
+(11, 1, 3, 2500000),
+(12, 1, 2, 2500000),
+(13, 3, 2, 85000);
+
+--actualizar todas las ventas (una vez hayas realizado la inserción de datos, tambien se podría crear un trigger a futuro). 
+UPDATE Sale
+SET total_amount = (
+    SELECT SUM(sd.unit_price * sd.quantity)
+    FROM SaleDetail sd
+    WHERE sd.sale_id = Sale.id
+);

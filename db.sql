@@ -1,14 +1,6 @@
-CREATE TABLE Product (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(50) NOT NULL,
-    category_id INT NOT NULL,
-    price NUMERIC(10,2) NOT NULL,
-    stock INT NOT NULL,
-    provider_id INT NOT NULL,
-    FOREIGN KEY (category_id) REFERENCES Category(id),
-    FOREIGN KEY (provider_id) REFERENCES Provider(id)
-);
+CREATE DATABASE  techzone;
 
+\c techzone;
 
 CREATE TABLE Category (
     id SERIAL PRIMARY KEY,
@@ -36,6 +28,17 @@ CREATE TABLE Sale (
     sale_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     total_amount NUMERIC(10,2),
     FOREIGN KEY (customer_id) REFERENCES Customer(id)
+);
+
+CREATE TABLE Product (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    category_id INT NOT NULL,
+    price NUMERIC(10,2) NOT NULL,
+    stock INT NOT NULL,
+    provider_id INT NOT NULL,
+    FOREIGN KEY (category_id) REFERENCES Category(id),
+    FOREIGN KEY (provider_id) REFERENCES Provider(id)
 );
 
 CREATE TABLE SaleDetail (
