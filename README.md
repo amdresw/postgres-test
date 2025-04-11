@@ -31,7 +31,7 @@ Este proyecto implementa una base de datos relacional en **PostgreSQL** para la 
 
 - **PostgreSQL 15+**
 - **PL/pgSQL** (lenguaje de procedimientos para funciones y triggers)
-- Herramientas opcionales: pgAdmin, DBeaver, TablePlus.
+- Herramientas opcionales: DBeaver, StarUML.
 
 ---
 
